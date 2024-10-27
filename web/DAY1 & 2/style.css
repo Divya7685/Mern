@@ -1,0 +1,26 @@
+/* p{
+    background-color: aquamarine;
+} */
+.myclass{
+    background-color: blue;
+}
+.myclass1{
+    background-color:brown;
+}
+
+/* .myclass2{ 
+    background-color: blueviolet;
+} */
+body{
+    padding:0px;
+    margin:0px;
+    height:100vh;
+    width:100vw;
+    display: flex;
+}
+ .f1{
+    background-color: blue;
+ }
+ .f2{
+    background-color: rgb(255, 153, 0);
+ }

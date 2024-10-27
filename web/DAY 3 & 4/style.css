@@ -1,0 +1,69 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    /* background: #edf1f3;  */
+/* background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);   */
+/* background: linear-gradient(to right, #2C5364, #203A43, #0F2027);  */
+
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-form{
+    border-radius: 8px;
+    background-color:f#0083b0;
+    height: 35vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    box-shadow:
+  3.9px 4.5px 3.6px rgba(0, 0, 0, 0.042),
+  10.8px 12.5px 10px rgba(0, 0, 0, 0.049),
+  25.9px 30.1px 24.1px rgba(0, 0, 0, 0.053),
+  86px 100px 80px rgba(0, 0, 0, 0.07)
+;
+}
+.login-input{
+    border-radius: 4px;
+    padding: 1rem;
+    width: 88%;
+    border: 0px;
+    outline: none;
+    box-shadow: 70PX 7PX 80PX rgba(0, 0, 0, 0.07);
+    border-bottom: 2px solid transparent;
+
+}
+
+.login-input:focus {
+    border-bottom: 2px solid #39e22d;
+}
+.login-input:hover {
+    border-bottom: 2px solid #8E2DE2;
+}
+.login-btn:focus{
+    border-bottom: 2px solid #8E2DE2;
+}
+
+.login-btn{
+    border-radius: 4px;
+    padding: 1rem;
+    width: 90%;
+    border: 0px;
+    outline: none;
+    /* background: #7F7FD5;  /* fallback for old browsers */
+/* background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  Chrome 10-25, Safari 5.1-6 */
+/* background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ */
+background: #FF0099;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #493240, #FF0099);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #493240, #FF0099); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+cursor: pointer;
+border: 3px solid rgb(48, 8, 48);
+}
+.login-btn:hover{
+    /* border: 3px solid white; */
+    box-shadow: #FF0099;
+}
