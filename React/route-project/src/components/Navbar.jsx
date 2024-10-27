@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -8,12 +9,12 @@ const Navbar = () => {
             path: '/'
         },
         {
-            title: 'products',
-            path: '/'
+            title: 'Products',
+            path: '/products'
         },
         {
             title: 'Contact',
-            path: '/'
+            path: '/contact'
         }
     ]
     return (
@@ -29,9 +30,15 @@ const Navbar = () => {
                         <li>Products</li>
                         <li>Contact</li>
                     </ul> */}
-                <div className='w-full flex flex-row justify-end items-center gap-8 font-semibold'>
+                    <div className='w-full flex flex-row justify-end items-center gap-8 font-bold'>
+                        {Linksdata.map((link, index) => (
+                            < NavLink to={link.path} key={index} className='h-[65%] w-20 hover:bg-purple-500 hover:text-white flex justify-center items-center rounded-sm'>
+                                {link.title}
+                            </NavLink>
+                        ))
+                        }
 
-                </div>
+                    </div>
                 </div>
             </div >
         </>
