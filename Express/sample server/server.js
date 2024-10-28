@@ -7,7 +7,7 @@ const app= express()
 app.use(express.json())
 
 app.get('/',(req,res)=>{
-    res.status(100).json("Hello");
+    res.status(200).json("Hello");
 })
 
 app.listen(Port,()=>{
