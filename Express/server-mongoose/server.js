@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 app.use(express.json())
 const db = require('./config/db')
-const Products = require('./routes/ProductRoute')
+const Products = require('./routes/Productroute')
 const Users = require('./routes/UserRoute')
 const Orders = require('./routes/OrderRoute')
 const Auth = require('./routes/AuthRoute')

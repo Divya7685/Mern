@@ -20,11 +20,10 @@ router.post('/add', async (req, res) => {
         }
 
         //TODO : Add User Email & Phone Validation
-
-        //Email
-
-        //Phone
-
+        // const EmailCheck = await Users.findOne({ email: email })
+        // if (EmailCheck) {
+        //     res.send(500).json({ message: `User with ${email} already exists !` })
+        // }
         await newuser.save()
         res.status(200).json(newuser)
     } catch (error) {
@@ -51,7 +50,7 @@ router.delete('/delete/:id', async (req, res) => {
         const id = req.params.id
         const existinguser = await Users.findOne({ _id: id })
         if (!existinguser) {
-            res.status(404).json({ message: "User not found" })
+            res.send(404).json({ message: "User not found" })
         }
         await Users.findByIdAndDelete(id)
         res.status(200).json({ message: "User Deleted" })
