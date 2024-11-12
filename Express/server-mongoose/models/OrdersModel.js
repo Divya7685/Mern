@@ -2,15 +2,15 @@ const mongoose = require('mongoose')
 
 const OrdersSchema = new mongoose.Schema({
     uid: {
-        type: String,
+        type: Number,
         required: true
     },
     pid: {
-        type: String,
+        type: Number,
         required: true,
     },
     total: {
-        type: String,
+        type: Number,
         required: true,
     },
     phone: {
@@ -20,7 +20,7 @@ const OrdersSchema = new mongoose.Schema({
     address: {
         type: String,
         required: true,
-    }, 
+    },
     orderedAt: {
         type: Date,
         default: Date.now,
