@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef,useState } from 'react'
 import AdminPageHeader from '../../components/Admin/AdminPageHeader'
-import { Loader2, Pencil, Trash, TriangleAlert } from 'lucide-react'
-import { getOrders } from '../../api/api'
+import { Loader2, Pencil, Trash, TriangleAlert,X } from 'lucide-react'
+import { getOrders,addOrder,deleteOrder } from '../../api/api'
 
 const AdminOrders = () => {
     const [orders, setOrders] = useState(null)
     const [loading, setLoading] = useState(true)
-
+    const [showAdd, setShowAdd] = useState(false)
+    const uidRef = useRef('')
+    const pidRef = useRef('')
+    const phoneRef = useRef('')
+    const totalRef = useRef(0)
     async function fetchData() {
         try {
             const res = await getOrders()
@@ -21,7 +25,40 @@ const AdminOrders = () => {
             setLoading(false)
         }
     }
-
+    const handleAdd = async (e) => {
+        e.preventDefault()
+        const order = {
+          uid: uidRef.current.value,
+          pid: pidRef.current.value,
+          phone: phoneRef.current.value,
+          total: totalRef.current.value
+        }
+        try {
+          const response = await addOrder(order)
+          if (response.status === 200) {
+            console.log("Order Added")
+            setShowAdd(false)
+            fetchData()
+          }
+    
+        } catch (error) {
+          console.error(error)
+        }
+    
+      }
+      const handleDelete = async (id) => {
+        try {
+          const response = await deleteOrder(id)
+          if (response.status === 200) {
+            console.log("Order Deleted!")
+            toast.success("Order Deleted!")
+            fetchData
+          }
+        } catch (error) {
+          console.error(error)
+    
+        }
+      }
 
     useEffect(() => {
         fetchData()
@@ -66,7 +103,7 @@ const AdminOrders = () => {
                         orders.map((order, index) => (
                             <tr key={index}>
                                 <td className='p-4'>{order.uid} </td>
-                                <td className='p-4'>{order.pid} </td> 
+                                <td className='p-4'>{order.pid} </td>
                                 <td className='p-4'>{order.phone} </td>
                                 <td className='p-4'>{order.total}</td>
                                 <td className='p-4 flex h-full w-full flex-row justify-start items-center gap-4'>
@@ -85,7 +122,7 @@ const AdminOrders = () => {
 
                     {/* <ProductCard img={product.img} name={product.name} price={product.price} key={product._id} /> */}
                     <tr>
-                        <td className='p-4'>Product1 </td>
+                        <td className='p-4'>order1 </td>
                         <td className='p-4'>100</td>
                         <td className='p-4 flex h-full w-full flex-row justify-start items-center gap-4'>
                             <button className='h-15 w-15 border-blue-500 border-2 p-1 rounded-md text-blue-500 shadow-md
@@ -93,7 +130,8 @@ const AdminOrders = () => {
                                 <Pencil />
                             </button>
                             <button className='h-15 w-15 border-red-500 border-2 p-1 rounded-md text-red-500 shadow-md
-               hover:bg-red-500 hover:text-white hover:shadow-red-500'>
+               hover:bg-red-500 hover:text-white hover:shadow-red-500'
+                                onClick={() => { handleDelete(order._id) }}>
                                 <Trash />
                             </button>
                         </td>

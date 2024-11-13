@@ -78,8 +78,9 @@ const Navbar = () => {
             setShowLogin(false)
             setShowRegister(true)
         } else if (showRegister) {
-            setShowLogin(true)
             setShowRegister(false)
+            setShowLogin(true)
+            
         }
     }
     return (
