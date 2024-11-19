@@ -57,6 +57,7 @@ router.post('/add', validateTokenAdmin, async (req, res) => {
         return res.status(500).json({ message: error.message })
     }
 })
+// default admin details
 router.post('/defaultadmin', async (req, res) => {
     try {
         const email = 'admin@admin.com'
